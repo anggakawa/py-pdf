@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Editor - Web App</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-file-pdf"></i> PDF Editor</h1>
+            <p>Drag & drop files to combine PDFs and images</p>
+        </header>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <label for="file-input" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add Files
+                </label>
+                <input type="file" id="file-input" multiple accept=".pdf,.png,.jpg,.jpeg,.gif,.bmp,.tiff" style="display: none;">
+                
+                <button id="clear-all" class="btn btn-secondary">
+                    <i class="fas fa-trash"></i> Clear All
+                </button>
+            </div>
+            
+            <div class="toolbar-right">
+                <button id="combine-btn" class="btn btn-success" disabled>
+                    <i class="fas fa-download"></i> Combine PDF
+                </button>
+            </div>
+        </div>
+
+        <!-- Drop Zone -->
+        <div id="drop-zone" class="drop-zone">
+            <div class="drop-zone-content">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Drop files here or click "Add Files"</h3>
+                <p>Supports PDF, PNG, JPG, JPEG, GIF, BMP, TIFF</p>
+            </div>
+        </div>
+
+        <!-- Files Grid -->
+        <div id="files-container" class="files-container" style="display: none;">
+            <h3>Files to Combine</h3>
+            <div id="files-grid" class="files-grid"></div>
+        </div>
+
+        <!-- Progress Modal -->
+        <div id="progress-modal" class="modal">
+            <div class="modal-content">
+                <h3>Processing Files...</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <p id="progress-text">Uploading files...</p>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal">
+            <div class="modal-content">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>PDF Created Successfully!</h3>
+                <p>Your combined PDF is ready for download.</p>
+                <button id="download-btn" class="btn btn-success">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+                <button id="close-success" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
